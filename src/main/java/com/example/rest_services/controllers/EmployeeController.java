@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +16,12 @@ public class EmployeeController {
     @Autowired
     private EmployeeRepo employeeRepo;
 
-    @GetMapping("/")
-    String home() {
-        return "This is home page nothing is here.\n Visit '/employees', '/'";
-    }
 
+
+    @GetMapping("/")
+    String home(){
+        return "http://localhost:8080/employees";
+    }
 
     @GetMapping("/employees")
     CollectionModel<EntityModel<Employee>> allEmployees() {
